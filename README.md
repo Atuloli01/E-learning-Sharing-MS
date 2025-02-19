@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-![error](https://github.com/Atuloli01/E-leaming-Sharing-MS/blob/mainTmagesDemo/er-Diagram.png)
+![error](./mainTmagesDemo/er-Diagram.png)
 ## Available Scripts
 
 In the project directory, you can run:
