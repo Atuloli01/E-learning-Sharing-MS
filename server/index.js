@@ -1,59 +1,46 @@
-const express=require("express")
-const app=express()
-require("dotenv").config()
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import connectDB from "./database/db.js";
+import userRoute from "./routes/user.route.js";
+import courseRoute from "./routes/course.route.js";
+import mediaRoute from "./routes/media.route.js";
+import purchaseRoute from "./routes/purchaseCourse.route.js";
+import courseProgressRoute from "./routes/courseProgress.route.js";
 
-const userRoutes=require("./routes/User")
-const profileRoutes=require("./routes/Profile")
-const paymentRoutes=require("./routes/Payments")
-const courseRoutes=require("./routes/Course")
-const contactRoute=require("./routes/Contact")
+dotenv.config();
+connectDB();
 
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-const database=require("./config/database")
-const cookieParser=require("cookie-parser") //npm install cookie-parser
-const cors=require("cors") // we want to run our backend to port 4000 and frontend to 3000 thus to coordiante we need cors
-const {cloudinaryConnect}=require("./config/cloudinary")
-const fileUpload=require("express-fileupload") //npm i express-fileupload
+// ✅ CORS FIRST: Top of the middleware stack
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
-const PORT=process.env.PORT||4000;
+// ✅ STEP 2: Apply it for ALL routes + preflight
+app.use(cors(corsOptions));
 
-//database connect
-database.connect()
+// ✅ STEP 3: Handle OPTIONS preflight manually
+app.options("*", cors(corsOptions));
 
-//middleware
-app.use(express.json())
-app.use(cookieParser())
-app.use(
-    cors({
-        origin:"http://localhost:3000",
-        credentials:true
-    })
-)
-app.use(
-    fileUpload({
-        useTempFiles:true,
-        tempFileDir:"/tmp"
-    })
-)
+// 👇 Then other middleware
+app.use(express.json());
+app.use(cookieParser());
 
-//cloudinary connect
-cloudinaryConnect()
+// 🔗 Routes
+app.use("/api/v1/media", mediaRoute);
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/course", courseRoute);
+app.use("/api/v1/purchase", purchaseRoute);
+app.use("/api/v1/progress", courseProgressRoute);
 
-//route mount
-app.use("/api/v1/auth",userRoutes)
-app.use("/api/v1/profile",profileRoutes)
-app.use("/api/v1/payment",paymentRoutes)
-app.use("/api/v1/course",courseRoutes)
-app.use("/api/v1",contactRoute)
-
-//default route
-app.get("/",(req,res)=>{
-    return res.json({
-        success:true,
-        message:"Your server is up and running"
-    })
-})
-
-app.listen(PORT,()=>{
-    console.log(`App is running at http://localhost:${PORT}`)
-})
+// 🚀 Start server
+app.listen(PORT, () => {
+  console.log(`Server listen at port ${PORT}`);
+});
