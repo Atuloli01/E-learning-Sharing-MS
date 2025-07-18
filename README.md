@@ -1,70 +1,354 @@
-# Getting Started with Create React App
+# 📚 E-Learning & Sharing Management System (ELMS-AI)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-![error](./mainTmagesDemo/er-Diagram.png)
-## Available Scripts
+> A modern web-based learning platform blending academics with social interactivity — like Instagram but smarter 📸 + 📖.
 
-In the project directory, you can run:
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Status](https://img.shields.io/badge/Status-Production-green)
+![Made with ❤️](https://img.shields.io/badge/Made%20with-Love-ff69b4)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ELMS-AI is a full-stack Learning Management System for students and instructors with features like:
 
-### `npm test`
+- 📹 Video lectures & PDF resources
+- 📝 Quizzes, Assignments, and Feedback
+- 📊 Performance tracking dashboards
+- 🔒 OTP-secured login and role-based access
+- 💬 Social features (soon!)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is education, upgraded. Tailored for small to medium institutions and independent educators.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧠 Motivation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+After the pandemic, remote learning became a **necessity**, not an option. ELMS-AI is built to address:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Accessibility from anywhere 🌍
+- Secure, engaging experiences 🔐
+- Blended learning with social interactivity 💡
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🎯 Objectives
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Dual-role access: `Student` & `Instructor`
+- Course & content management
+- Assessment & grading modules
+- Scalable, intuitive interface
+- Analytics & performance tracking
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧰 Tech Stack
 
-## Learn More
+| Layer         | Tech                          |
+|---------------|-------------------------------|
+| 🌐 Frontend   | React.js, Tailwind CSS, HTML, CSS, JavaScript |
+| ⚙️ Backend    | PHP (primary), Node.js, Express.js, Python (Django) |
+| 💾 Database   | MySQL (Relational), MongoDB (NoSQL optional) |
+| 🔐 Auth       | OTP Verification, JWT Tokens  |
+| 🧠 State Mgmt | Redux / Context API           |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🧪 Features
 
-### Code Splitting
+### 🔐 Authentication & Roles
+- OTP-based login and secure password reset
+- JWT token handling
+- Role-based authorization (`Admin`, `Student`, `Instructor`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🧑‍🏫 Instructor Portal
+- Create & manage courses
+- Upload lectures, PDFs, assignments
+- Assess submissions and grade
 
-### Analyzing the Bundle Size
+### 👨‍🎓 Student Portal
+- Enroll in courses
+- View materials, submit work
+- Track progress & get feedback
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 📊 Analytics & Reporting
+- Course completion stats
+- Student performance graphs
+- Admin dashboard for platform insights
 
-### Making a Progressive Web App
+### 🛠 Extras
+- Modular course structure
+- Discussion forums (upcoming)
+- Real-time notifications
+- Certificate generation on course completion
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🏗️ System Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Architecture**: Traditional 3-tier (Frontend, Backend, DB)
+- **SDLC Model**: Waterfall (perfect for well-scoped academic projects)
+- **Diagrams**: ER Model, DFDs (Level 0 and 1), Sequence & Activity Diagrams
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🧾 Database Schema
 
-### `npm run build` fails to minify
+**Main Tables (SQL)**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `users`: ID, name, email, password, role
+- `courses`: ID, title, instructor_id
+- `enrollments`: course_id, user_id, progress
+- `videos`, `notes`, `assignments`, `results`, `feedback`
+
+MongoDB used optionally for scalability in analytics, dynamic content.
+
+---
+
+## 🛠️ Local Setup Guide
+
+### 💾 Requirements
+
+- OS: Windows 7/10 or macOS/Linux
+- Tools: XAMPP or WAMP for PHP + MySQL
+- Node.js (for advanced backend optional features)
+- Browser: Chrome / Firefox
+
+### 🔧 Installation Steps
+
+#### ✅ Using PHP (XAMPP)
+
+```bash
+# Clone the repository
+git clone https://github.com/Atuloli01/LMS-final-Year-project.git
+
+# Move into the project directory
+cd LMS-final-Year-project
+
+# Add a .env file with necessary keys
+# (You can use a text editor like nano or VS Code to create it)
+
+# Open two terminal tabs and run the following in each:
+
+# In the first terminal
+cd client/
+npm run dev
+
+# In the second terminal
+cd server/
+npm run dev
+```
+
+<h1>Enjoy the Project : </h1>
+-----
+------
+<h2>Documentation: </h2>
+# 🎓 MERN Stack Learning Management System (LMS)
+
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+![Issues](https://img.shields.io/github/issues/Atuloli01/LMS-final-Year-project)
+![Forks](https://img.shields.io/github/forks/Atuloli01/LMS-final-Year-project)
+![Stars](https://img.shields.io/github/stars/Atuloli01/LMS-final-Year-project)
+
+A complete Learning Management System built using the MERN stack for seamless course management, student-teacher interaction, and secure content delivery.
+
+---
+
+## 📚 Table of Contents
+
+- [🌐 Live Demo](#-live-demo)
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📁 Folder Structure](#-folder-structure)
+- [⚙️ Getting Started](#️-getting-started)
+- [🔐 Authentication](#-authentication)
+- [📦 API Overview](#-api-overview)
+- [🖼️ Screenshots](#️-screenshots)
+- [🧩 Planned Features](#-planned-features)
+- [🤝 Contributing](#-contributing)
+- [👨‍💻 Author](#-author)
+- [📄 License](#-license)
+- [💬 Feedback](#-feedback)
+
+---
+
+## 🌐 Live Demo
+
+> 🚀 **Coming Soon**
+
+---
+
+## ✨ Features
+
+<details>
+<summary>🔍 Click to Expand</summary>
+
+### 👨‍🏫 Instructor Features
+- Course creation
+- Assignment uploading
+- Resource management
+
+### 🎓 Student Features
+- Enrollment in courses
+- Submit assignments
+- View/download learning materials
+
+### 🔒 Security & UX
+- JWT authentication
+- Role-based access
+- Responsive UI with modern design
+- Real-time chat and notifications
+</details>
+
+---
+
+## 🛠️ Tech Stack
+
+| Type       | Technologies                                   |
+|------------|------------------------------------------------|
+| Frontend   | React.js, Tailwind CSS, Axios                  |
+| Backend    | Node.js, Express.js                            |
+| Database   | MongoDB, Mongoose                              |
+| Auth       | JWT, bcrypt                                    |
+| Realtime   | Socket.io                                      |
+| Storage    | Cloudinary                                     |
+| Dev Tools  | Concurrently, Nodemon, ESLint                  |
+
+---
+
+## 📁 Folder Structure
+
+```plaintext
+LMS-final-Year-project/
+├── client/                 # Frontend (React)
+│   ├── public/
+│   └── src/
+│       ├── components/     # Reusable components
+│       ├── pages/          # Route-based components
+│       ├── context/        # Auth/context providers
+│       └── utils/          # Axios, validators, etc.
+│
+├── server/                 # Backend (Node + Express)
+│   ├── controllers/        # Logic for routes
+│   ├── routes/             # API endpoints
+│   ├── models/             # Mongoose schemas
+│   ├── middleware/         # Auth middleware
+│   └── config/             # DB connection & config
+│
+├── .env                    # Environment config (not committed)
+├── package.json            # Root config for scripts
+├── README.md               # You’re here
+```
+
+⚙️ Getting Started
+1️⃣ Clone the Repository
+``` bash
+git clone https://github.com/Atuloli01/LMS-final-Year-project.git
+cd LMS-final-Year-project
+```
+<div>2️⃣ Setup Environment Variables
+Create a .env file in server/ with:  </div>
+``` bash
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret
+CLOUDINARY_CLOUD_NAME=your_name
+CLOUDINARY_API_KEY=your_key
+CLOUDINARY_API_SECRET=your_secret
+```
+3️⃣ Install Dependencies
+``` bash
+
+
+# Frontend
+```
+# Backend
+cd server
+npm install
+
+cd client
+npm install
+4️⃣ Run the App
+Use 2 terminals:
+
+# Terminal 1
+cd server
+npm run dev
+
+# Terminal 2
+cd client
+npm run dev
+```
+---
+
+## 🔐 Authentication
+
+- 🔐 **JWT-based login and registration**
+- 🔒 Passwords are hashed securely using `bcrypt`
+- 🧑‍🤝‍🧑 Role-based access control:
+  - Admin
+  - Instructor
+  - Student
+- 🛡️ Protected routes via Express middleware
+
+---
+
+## 📦 API Overview
+
+The LMS backend provides a comprehensive set of **RESTful APIs** for:
+
+- ✅ User registration & login
+- ✅ Course creation, enrollment, and module management
+- ✅ Assignment uploads and student submissions
+- ✅ Real-time chat & messaging functionality
+- ✅ Secure file uploads using Cloudinary
+
+> 📌 _Postman collection & Swagger docs coming soon!_
+
+---
+
+## 🖼️ Screenshots
+
+> _You can add screenshots of your UI by uploading them to the repo and linking them here._
+
+- 📷 **Course Dashboard**
+- 📷 **Instructor Panel**
+- 📷 **Student Assignment View**
+
+---
+
+## 🧩 Planned Features
+
+- [x] Instructor dashboard with metrics and management tools
+- [x] File uploads (videos, PDFs, docs, etc.)
+- [ ] Real-time notifications and announcements
+- [ ] Integration with Stripe or Razorpay for paid courses
+- [ ] Progressive Web App (PWA) compatibility for mobile access
+
+---
+
+
+🤝 Contributing
+```bash
+
+# 1. Fork this repo
+# 2. Create a new branch
+git checkout -b feature/your-feature
+
+# 3. Make your changes
+# 4. Push to GitHub
+git push origin feature/your-feature
+```
+# 5. Create a Pull Request
+👨‍💻 Author
+Atuloli01
+🔗 GitHub: Atuloli01
+
+📄 License
+This project is licensed under the MIT License.
+
+💬 Feedback
+Have suggestions or bugs?
+Please open an issue or contact me directly.
+
+
